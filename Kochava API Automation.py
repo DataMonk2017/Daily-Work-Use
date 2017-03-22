@@ -36,15 +36,12 @@ def get_event(test_list):
     app_name=test_list[4]
     pattern = '%d.%m.%Y %H:%M:%S'
     start_epoch = str(int((datetime.datetime.strptime(start_time,pattern) - datetime.datetime.strptime("1970-1-1","%Y-%m-%d")).total_seconds()))
-
-    #start_epoch = str(int(time.mktime(time.strptime(start_time, pattern))))
     #print(start_epoch)
     end_epoch = str(int((datetime.datetime.strptime(end_time,pattern) - datetime.datetime.strptime("1970-1-1","%Y-%m-%d")).total_seconds()))
-    #end_epoch = str(int(time.mktime(time.strptime(end_time, pattern))))   
     headers = {'content-type': 'application/json'}
     
     post_data2={
-      "api_key": "E0663704-485B-479A-8448-C169A92D714F",
+      "api_key": "input your API key",
       "app_guid": app_guid,
       "time_start": start_epoch,
       "time_end":end_epoch ,
@@ -118,7 +115,7 @@ def get_event(test_list):
     json_obj2 = json.loads(string2)
     report_token2=json_obj2['report_token']
     data2={
-        "api_key": "E0663704-485B-479A-8448-C169A92D714F",
+        "api_key": "input your api key",
         "app_guid": app_guid,
         "token": report_token2,
     }
@@ -186,7 +183,7 @@ end_time = (datetime.date.today()).strftime('%d.%m.%Y %H:%M:%S')#'26.10.2016 00:
 #%%
 
 e_list=tuple(split_timeinterval(app_guid,start_time,end_time,time_interval,event_name))
-
+#%%multithread
 start = time.time()
 pool = ThreadPool(len(e_list))
 pool.map(get_event, e_list)    
