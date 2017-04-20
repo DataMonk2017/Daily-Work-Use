@@ -26,7 +26,7 @@ except Exception:
 new_path=path+'\\GMG\\event\\'+subdirectory
 time_interval=15
 event_name=['Bundle Purchasek-2',"Grade 1 Purchase","Grade 2 Purchase","Grade K Purchase"]
-app_guid="kogo-math-go----ios----prod56fd9d987becc"
+app_guid="guid"
 #%%
 def get_event(test_list):
     app_guid=test_list[0]
