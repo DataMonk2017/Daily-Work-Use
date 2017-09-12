@@ -80,4 +80,9 @@ for result in results :
 import json
 with open('outputfile', 'w') as fout:
     json.dump(your_list_of_dict, fout)
+    
+
+####################################################################################
+str1.replace('letterneedtoreplace','letteryouwanttouse')
+
 ```
