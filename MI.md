@@ -2,16 +2,13 @@
 ## This is a file to record every point.
 
 ```python
+####################################################################################
 #list all files end with 'txt' in Python
-
-
 # way 1
 import os
 for file in os.listdir("/mydir"):
     if file.endswith(".txt"):
         print(os.path.join("/mydir", file))
-
-
 #way 2
 import glob, os
 os.chdir("/mydir")
@@ -28,7 +25,8 @@ for root, dirs, files in os.walk("/mydir"):
              
              
              
-## 
+####################################################################################
+#get the request info before sending out
 import requests
 
 req = requests.Request('POST','http://stackoverflow.com',headers={'X-Custom':'Test'},data='a=1&b=2')
@@ -56,8 +54,8 @@ pretty_print_POST(prepared)
 s = requests.Session()
 s.send(prepared)
 
-
-## find tags with only certain attributes
+####################################################################################
+# find tags with only certain attributes
 soup = BeautifulSoup(html)
 results = soup.findAll("td", {"valign" : "top"})
 
@@ -75,7 +73,7 @@ for result in results :
     if len(result.attrs) == 1 :
         print result
 
-
+####################################################################################
 #dump json file
 #provided that the object only contains objects that JSON can handle (lists, tuples, strings, dicts, numbers, None, True and False), you can dump it as json.dump:
 
