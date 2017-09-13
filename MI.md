@@ -115,4 +115,8 @@ response.encoding #utf-8
 #Then you use the encoding response in saving files. or
 r.text # may use `chardet` to auto-detect encoding
 
+
+####################################################################################
+# "Return true if there are only whitespace characters in the string and there is at least one character, false otherwise."
+yourString.isspace()
 ```
