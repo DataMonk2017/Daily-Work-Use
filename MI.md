@@ -115,5 +115,4 @@ response.encoding #utf-8
 #Then you use the encoding response in saving files. or
 r.text # may use `chardet` to auto-detect encoding
 
-
 ```
