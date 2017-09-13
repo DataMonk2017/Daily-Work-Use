@@ -93,4 +93,27 @@ file.read()
 ####################################################################################
 #get dict keys
 dict1.keys()
+
+
+####################################################################################
+'''
+python unicode:
+this problem is a big headache. when trying to save a file, you had better ignore errors. For example,
+more advanced option:
+https://stackoverflow.com/questions/14630288/unicodeencodeerror-charmap-codec-cant-encode-character-maps-to-undefined
+
+'''
+with open(filename, 'r',encoding='utf-8',errors = 'ignore') as f:
+    data = f.readlines()
+    
+#when you are trying to save a response to a file from html, you could get the encoding of the html as follows:
+# useful link: https://stackoverflow.com/questions/14592762/a-good-way-to-get-the-charset-encoding-of-an-http-response-in-python
+# https://stackoverflow.com/questions/5419/python-unicode-and-the-windows-console/32176732#32176732
+
+response = requests.get(link)
+response.encoding #utf-8
+#Then you use the encoding response in saving files. or
+r.text # may use `chardet` to auto-detect encoding
+
+
 ```
