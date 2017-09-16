@@ -119,4 +119,17 @@ r.text # may use `chardet` to auto-detect encoding
 ####################################################################################
 # "Return true if there are only whitespace characters in the string and there is at least one character, false otherwise."
 yourString.isspace()
+
+####################################################################################
+# pandas 2 ways to set value in data frame
+df.xs('C', copy = False)['x'] = 10
+#This way is better since it's the fattest
+df.set_value('C','x',10)
+
+
+####################################################################################
+#when row is 123,this is "out text"
+# print 123,this is "out text" rather than 123,"this is ""out text"""
+import csv
+ df.to_csv('foo.txt',index=False,header=False, quoting=csv.QUOTE_NONE)
 ```
