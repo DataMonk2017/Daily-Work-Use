@@ -1,4 +1,4 @@
-# This file is used for saving my notes in css.
+# This file is used to keep my notes in css.
 ## 
 Use a white space to match all descendants of an element:
 ```css
@@ -50,3 +50,16 @@ If, however, you add !important to the less-specific selector's CSS declaration,
 Using !important has its purposes (though I struggle to think of them), but it's much like using a nuclear explosion to stop the foxes killing your chickens; yes, the foxes will be killed, but so will the chickens. And the neighbourhood.
 
 It also makes debugging your CSS a nightmare (from personal, empirical, experience).
+
+##
+
+If the rules are equal in specificity (in this case they are), individual rules get overridden in the order they're defined in the CSS, so in your example red wins because it comes later in the CSS definitions. The same rule applies in other cases as well, for example:
+```csss
+<div class="red green">
+```
+Which of these wins?
+```css
+.green { color: green; }
+.red { color: red; }
+```
+`.red` wins here, it doesn't matter the order in the `class` attribute, all that matters is the order the styles are defined in the CSS itself.
