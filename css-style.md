@@ -10,12 +10,15 @@ x y matches every element y that is inside x, however deeply nested it may be - 
 The asterisk * matches any element.
 
 
+
 set min-height to control height of element
 ```css
 .div {
 min-height:100%;
 }
 ```
+
+
 
 remove default style from browsers
 ```css
@@ -27,6 +30,8 @@ html, body {
      height:100%; /* take full browser height*/
 }
 ```
+
+
 
 A more specific rule will override a less-specific rule.
 ```css
