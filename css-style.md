@@ -52,9 +52,12 @@ Using !important has its purposes (though I struggle to think of them), but it's
 It also makes debugging your CSS a nightmare (from personal, empirical, experience).
 
 ##
+One Sentence Conclusion: No matter the order in the 'class' attribute, what comes the latter in css will be applied and override the former rule.
+
+Explanation:
 
 If the rules are equal in specificity (in this case they are), individual rules get overridden in the order they're defined in the CSS, so in your example red wins because it comes later in the CSS definitions. The same rule applies in other cases as well, for example:
-```csss
+```css
 <div class="red green">
 ```
 Which of these wins?
