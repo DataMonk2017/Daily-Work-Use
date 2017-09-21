@@ -1,5 +1,5 @@
 # This file is used for saving my notes in css.
-
+## 
 Use a white space to match all descendants of an element:
 ```css
 div.dropdown * {
@@ -10,7 +10,7 @@ x y matches every element y that is inside x, however deeply nested it may be - 
 The asterisk * matches any element.
 
 
-
+## 
 set min-height to control height of element
 ```css
 .div {
@@ -19,7 +19,7 @@ min-height:100%;
 ```
 
 
-
+## 
 remove default style from browsers
 ```css
 html, body {
@@ -32,7 +32,7 @@ html, body {
 ```
 
 
-
+## 
 A more specific rule will override a less-specific rule.
 ```css
 a {
@@ -40,7 +40,7 @@ a {
 }
 ```
 is normally overruled by:
-```
+```css
 body div #elementID ul li a{
   /*css*/
 }
