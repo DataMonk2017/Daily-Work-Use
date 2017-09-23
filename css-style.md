@@ -66,3 +66,20 @@ Which of these wins?
 .red { color: red; }
 ```
 `.red` wins here, it doesn't matter the order in the `class` attribute, all that matters is the order the styles are defined in the CSS itself.
+
+##
+
+move the button to the right of `panel-heading`.
+```css
+<div class="panel panel-default">
+    <div class="panel-heading clearfix">
+      <h4 class="panel-title pull-left" style="padding-top: 7.5px;">Panel header</h4>
+      <div class="btn-group pull-right">
+        <a href="#" class="btn btn-default btn-sm">## Lock</a>
+        <a href="#" class="btn btn-default btn-sm">## Delete</a>
+        <a href="#" class="btn btn-default btn-sm">## Move</a>
+      </div>
+    </div>
+    ...
+</div>
+```
