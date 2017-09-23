@@ -17,3 +17,25 @@ Looks like your requirement is just to fade out the text beginning at a certain 
   background:linear-gradient(transparent 150px, white);
 }
 ```
+## make bootstrap thumbnail same size 
+You can achieve that by defining dimensions for your containers.
+
+for example in your container element(.thumbnail), set a specific dimensions to follow like:
+
+```
+.thumbnail{        
+    width: 300px; 
+    // or you could use percentage values for responsive layout
+    // width : 100%;
+    height: 500px;
+    overflow: auto;
+}
+
+.thumbnail img{
+    // your styles for the image
+    width: 100%;
+    height: auto;
+    display: block;
+}
+```
+and so on with the other elements.
