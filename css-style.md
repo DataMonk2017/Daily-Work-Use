@@ -57,7 +57,7 @@ One Sentence Conclusion: No matter the order in the 'class' attribute, what come
 Explanation:
 
 If the rules are equal in specificity (in this case they are), individual rules get overridden in the order they're defined in the CSS, so in your example red wins because it comes later in the CSS definitions. The same rule applies in other cases as well, for example:
-```css
+```html
 <div class="red green">
 ```
 Which of these wins?
@@ -70,7 +70,7 @@ Which of these wins?
 ##
 
 move the button to the right of `panel-heading`.
-```css
+```html
 <div class="panel panel-default">
     <div class="panel-heading clearfix">
       <h4 class="panel-title pull-left" style="padding-top: 7.5px;">Panel header</h4>
