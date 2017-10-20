@@ -48,6 +48,8 @@ We use this in cases where we cannot guarantee that the relations will get creat
 
 #### DateTimeField becomes a datetime.datetime object in Python
 
+[StackOverflow](https://stackoverflow.com/questions/35300460/get-date-from-a-django-datetimefield)
+
 If you need a date object to manipulate later on, you could pull the `datetime.date` object directly from your `DateTimeField()`, using `datetime.datetime.date()` like below:
 
 ```
