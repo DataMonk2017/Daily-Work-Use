@@ -71,3 +71,12 @@ $("#checkbox").attr("checked", true);
 // Uncheck
 $("#checkbox").attr("checked", false);
 ```
+
+## js make overflow visible
+```
+$('#viewVoters').css('overflow':'visible');
+
+#viewVoters {
+    overflow: auto !important;  /* or 'visible' whatever */
+}
+```
