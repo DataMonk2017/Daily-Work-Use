@@ -161,3 +161,45 @@ Just to follow up on this - if you want the arrow to position itself correctly (
 }
 ```
 Note the "navbar-right" - that was introduced in BS3 instead of pull-right for navbars.
+
+Remvoe the arrow:
+```
+.dropdown-menu:after {
+    border: none !important;
+    content: "" !important;
+}
+.dropdown-menu:before {
+    border: none !important;
+    content: "" !important;
+}
+```
+
+## Bootstrap dropdown: position of dropdown content
+Edit:
+
+As of v3.1.0, we've deprecated .pull-right on dropdown menus. To right-align a menu, use .dropdown-menu-right. Right-aligned nav components in the navbar use a mixin version of this class to automatically align the menu. To override it, use .dropdown-menu-left.
+
+You can use the 'dropdown-right' class to line the right hand side of the menu up with the caret:
+```
+<li class="dropdown">
+  <a class="dropdown-toggle" href="#">Link</a>
+  <ul class="dropdown-menu dropdown-menu-right">
+     <li>...</li>
+  </ul>
+</li>
+```
+When Bootstrap < 3.1.0 but you should generally be using the above (and if it doesn't seem to be working double check the version number of Bootstrap that you're including)!
+
+You can use the 'pull-right' class to line the right hand side of the menu up with the caret:
+```
+<li class="dropdown">
+  <a class="dropdown-toggle" href="#">Link</a>
+  <ul class="dropdown-menu pull-right">
+     <li>...</li>
+  </ul>
+</li>
+```
+
+## calc usage
+
+[CSS-Trick](https://css-tricks.com/a-couple-of-use-cases-for-calc/#article-header-id-1)
