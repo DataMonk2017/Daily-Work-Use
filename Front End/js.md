@@ -39,3 +39,35 @@ for example in your container element(.thumbnail), set a specific dimensions to 
 }
 ```
 and so on with the other elements.
+
+##
+[Stackoverlfow](https://stackoverflow.com/questions/8206565/check-uncheck-checkbox-with-javascript)
+
+Check/Uncheck checkbox with JavaScript?
+
+Javascript:
+```
+// Check
+document.getElementById("checkbox").checked = true;
+
+// Uncheck
+document.getElementById("checkbox").checked = false;
+```
+
+jQuery (1.6+):
+```
+// Check
+$("#checkbox").prop("checked", true);
+
+// Uncheck
+$("#checkbox").prop("checked", false);
+```
+
+jQuery (1.5-):
+```
+// Check
+$("#checkbox").attr("checked", true);
+
+// Uncheck
+$("#checkbox").attr("checked", false);
+```
