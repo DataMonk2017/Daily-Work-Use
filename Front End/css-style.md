@@ -84,6 +84,7 @@ move the button to the right of `panel-heading`.
 </div>
 ```
 ##
+[StackOverflow](https://stackoverflow.com/questions/339923/set-cellpadding-and-cellspacing-in-css)
 In an HTML table, the cellpadding and cellspacing can be set like this:
 ```
 <table cellspacing="1" cellpadding="1">
@@ -114,3 +115,4 @@ table {
 }
 ```
 Note: For a great overview of CSS properties that one can apply to tables and for which browsers, see this [fantastic Quirksmode page](https://quirksmode.org/css/css2/tables.html).
+
