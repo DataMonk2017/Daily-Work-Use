@@ -83,3 +83,34 @@ move the button to the right of `panel-heading`.
     ...
 </div>
 ```
+##
+In an HTML table, the cellpadding and cellspacing can be set like this:
+```
+<table cellspacing="1" cellpadding="1">
+```
+How can the same be accomplished using CSS?
+    
+    
+For controlling "cellpadding" in CSS, you can simply use padding on table cells.
+For "cellspacing", you can apply the border-spacing CSS property to your table.
+```
+td {
+padding: 10px;
+}
+
+table {
+border-spacing: 10px;
+border-collapes: seperate;
+}
+```
+
+This will work in almost all popular browsers except for Internet Explorer up through Internet Explorer 7, where you're almost out of luck. I say "almost" because these browsers still support the border-collapse property, which merges the borders of adjoining table cells. If you're trying to eliminate `cellspacing` (that is, `cellspacing="0"`) then `border-collapse:collapse` should have the same effect: no space between table cells. This support is buggy, though, as it does not override an existing cellspacing HTML attribute on the table element.
+
+In short: for non-Internet Explorer 5-7 browsers, `border-spacing` handles you. For Internet Explorer, if your situation is just right (you want 0 cellspacing and your table doesn't have it defined already), you can use `border-collapse:collapse`.
+```
+table { 
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+```
+Note: For a great overview of CSS properties that one can apply to tables and for which browsers, see this [fantastic Quirksmode page](https://quirksmode.org/css/css2/tables.html).
