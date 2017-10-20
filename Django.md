@@ -73,3 +73,19 @@ If you want to allow for NULL values in scheduled_at you can do:
 if application_data.scheduled_at is not None:
       date = application_data.scheduled_at.date()
 ```
+
+## Django override default form error messages
+
+The easiest way is to provide your set of default errors to the form field definition. Form fields can take a named argument for it. For example:
+```
+my_default_errors = {
+    'required': 'This field is required',
+    'invalid': 'Enter a valid value'
+}
+
+class MyForm(forms.Form):
+    some_field = forms.CharField(error_messages=my_default_errors)
+    ....
+```    
+    
+Hope this helps.
