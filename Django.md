@@ -43,3 +43,31 @@ We use this in cases where we cannot guarantee that the relations will get creat
 
 ## Setting Django/MySQL site to use UTF-8
 'OPTIONS':{'SET storage_engine=INNODB,character_set_connection=utf8,collation_connection=utf8_unicode_ci'}
+
+## Get date from a Django DateTimeField
+
+#### DateTimeField becomes a datetime.datetime object in Python
+
+If you need a date object to manipulate later on, you could pull the `datetime.date` object directly from your `DateTimeField()`, using `datetime.datetime.date()` like below:
+
+```
+class ApplicantData(models.Model):
+    scheduled_at = models.DateTimeField(null=True, blank=True)
+
+date = application_data.scheduled_at.date()
+```
+This works because Django will translate the DateTimeField into the Python type `datetime.datetime`, upon which we have called `date()`.
+
+Format the `datetime.date` like you wish
+
+Then from that, you get a `datetime.date` object, that you can format like you wish, using `datetime.date.strftime()`.
+
+If you don't need a date object, you can also use `strftime` on your `datetime.datetime` object too, no problems with that. Except that your had a None field in your object.
+
+Dealing with NULL/None fields
+
+If you want to allow for NULL values in scheduled_at you can do:
+```
+if application_data.scheduled_at is not None:
+      date = application_data.scheduled_at.date()
+```
