@@ -83,8 +83,10 @@ move the button to the right of `panel-heading`.
     ...
 </div>
 ```
-##
+## cellpadding and cellspacing
+
 [StackOverflow](https://stackoverflow.com/questions/339923/set-cellpadding-and-cellspacing-in-css)
+
 In an HTML table, the cellpadding and cellspacing can be set like this:
 ```
 <table cellspacing="1" cellpadding="1">
@@ -116,3 +118,46 @@ table {
 ```
 Note: For a great overview of CSS properties that one can apply to tables and for which browsers, see this [fantastic Quirksmode page](https://quirksmode.org/css/css2/tables.html).
 
+## arrow on dropdown menu
+
+[StackOverflow](https://stackoverflow.com/questions/19983995/bootstrap-3-arrow-on-dropdown-menu)
+
+```
+.dropdown-menu:before {
+  position: absolute;
+  top: -7px;
+  left: 9px;
+  display: inline-block;
+  border-right: 7px solid transparent;
+  border-bottom: 7px solid #ccc;
+  border-left: 7px solid transparent;
+  border-bottom-color: rgba(0, 0, 0, 0.2);
+  content: '';
+}
+
+.dropdown-menu:after {
+  position: absolute;
+  top: -6px;
+  left: 10px;
+  display: inline-block;
+  border-right: 6px solid transparent;
+  border-bottom: 6px solid #ffffff;
+  border-left: 6px solid transparent;
+  content: '';
+}
+```
+Confused how? [See here for an animation that explains css triangles](https://codepen.io/chriscoyier/pen/lotjh)
+
+Just to follow up on this - if you want the arrow to position itself correctly (like when using it on a navbar element that is right-aligned, you need the following additional CSS to ensure the arrow is right-aligned:
+```
+.navbar .navbar-right > li > .dropdown-menu:before,
+.navbar .nav > li > .dropdown-menu.navbar-right:before {
+    right: 12px; left: auto;
+}
+
+.navbar .navbar-right > li > .dropdown-menu:after,
+.navbar .nav > li > .dropdown-menu.navbar-right:after {
+    right: 13px; left: auto;
+}
+```
+Note the "navbar-right" - that was introduced in BS3 instead of pull-right for navbars.
