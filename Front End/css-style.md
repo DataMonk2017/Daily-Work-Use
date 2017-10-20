@@ -175,6 +175,7 @@ Remvoe the arrow:
 ```
 
 ## Bootstrap dropdown: position of dropdown content
+[StackOverflow](https://stackoverflow.com/questions/17904862/bootstrap-dropdown-positioning-of-dropdown-content)
 Edit:
 
 As of v3.1.0, we've deprecated .pull-right on dropdown menus. To right-align a menu, use .dropdown-menu-right. Right-aligned nav components in the navbar use a mixin version of this class to automatically align the menu. To override it, use .dropdown-menu-left.
