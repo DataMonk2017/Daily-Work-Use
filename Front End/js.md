@@ -40,10 +40,10 @@ for example in your container element(.thumbnail), set a specific dimensions to 
 ```
 and so on with the other elements.
 
-##
-[Stackoverlfow](https://stackoverflow.com/questions/8206565/check-uncheck-checkbox-with-javascript)
+## Check/Uncheck checkbox with JavaScript?
 
-Check/Uncheck checkbox with JavaScript?
+[StackOverlfow](https://stackoverflow.com/questions/8206565/check-uncheck-checkbox-with-javascript)
+
 
 Javascript:
 ```
