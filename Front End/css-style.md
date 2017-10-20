@@ -146,7 +146,7 @@ Note: For a great overview of CSS properties that one can apply to tables and fo
   content: '';
 }
 ```
-Confused how? [See here for an animation that explains css triangles](https://codepen.io/chriscoyier/pen/lotjh)
+Confused how? [See here for an animation that explains css triangles.](https://codepen.io/chriscoyier/pen/lotjh)
 
 Just to follow up on this - if you want the arrow to position itself correctly (like when using it on a navbar element that is right-aligned, you need the following additional CSS to ensure the arrow is right-aligned:
 ```
