@@ -80,3 +80,13 @@ $('#viewVoters').css('overflow':'visible');
     overflow: auto !important;  /* or 'visible' whatever */
 }
 ```
+
+## automatically detect web browser window width change?
+
+[StackOverflow](https://stackoverflow.com/questions/2172800/automatically-detect-web-browser-window-width-change)
+
+```
+$(window).resize(function() {
+  console.log('window was resized');
+});
+```
