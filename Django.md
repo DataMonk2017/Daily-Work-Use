@@ -249,7 +249,7 @@ Together `MemoryFileUploadHandler` and `TemporaryFileUploadHandler` provide Djan
 
 You can write custom handlers that customize how Django handles files. You could, for example, use custom handlers to enforce user-level quotas, compress data on the fly, render progress bars, and even send data to another storage location directly without storing it locally. See Writing custom upload handlers for details on how you can customize or completely replace upload behavior.
 
-### Where uploaded data is stored¶
+### Where uploaded data is stored
 
 Before you save uploaded files, the data needs to be stored somewhere.
 
@@ -259,15 +259,17 @@ However, if an uploaded file is too large, Django will write the uploaded file t
 
 These specifics – 2.5 megabytes; /tmp; etc. – are simply “reasonable defaults” which can be customized as described in the next section.
 
-### Modifying upload handlers on the fly¶
+[user uploaded content security](https://docs.djangoproject.com/en/1.11/topics/security/#user-uploaded-content-security)
 
-Sometimes particular views require different upload behavior. In these cases, you can override upload handlers on a per-request basis by modifying request.upload_handlers. By default, this list will contain the upload handlers given by FILE_UPLOAD_HANDLERS, but you can modify the list as you would any other list.
+### Modifying upload handlers on the fly
+
+Sometimes particular views require different upload behavior. In these cases, you can override upload handlers on a per-request basis by modifying request.upload_handlers. By default, this list will contain the upload handlers given by `FILE_UPLOAD_HANDLERS`, but you can modify the list as you would any other list.
 
 For instance, suppose you’ve written a ProgressBarUploadHandler that provides feedback on upload progress to some sort of AJAX widget. You’d add this handler to your upload handlers like this:
 
 `request.upload_handlers.insert(0, ProgressBarUploadHandler(request))`
 
-You’d probably want to use list.insert() in this case (instead of append()) because a progress bar handler would need to run before any other handlers. Remember, the upload handlers are processed in order.
+You’d probably want to use `list.insert()` in this case (instead of `append()`) because a progress bar handler would need to run before any other handlers. Remember, the upload handlers are processed in order.
 
 If you want to replace the upload handlers completely, you can just assign a new list:
 
@@ -275,11 +277,11 @@ If you want to replace the upload handlers completely, you can just assign a new
 
 Note
 
-You can only modify upload handlers before accessing request.POST or request.FILES – it doesn’t make sense to change upload handlers after upload handling has already started. If you try to modify request.upload_handlers after reading from request.POST or request.FILES Django will throw an error.
+You can only modify upload handlers before accessing `request.POST` or `request.FILES` – it doesn’t make sense to change upload handlers after upload handling has already started. If you try to modify `request.upload_handlers` after reading from `request.POST` or `request.FILES` Django will throw an error.
 
 Thus, you should always modify uploading handlers as early in your view as possible.
 
-Also, request.POST is accessed by CsrfViewMiddleware which is enabled by default. This means you will need to use csrf_exempt() on your view to allow you to change the upload handlers. You will then need to use csrf_protect() on the function that actually processes the request. Note that this means that the handlers may start receiving the file upload before the CSRF checks have been done. Example code:
+Also, `request.POST` is accessed by `CsrfViewMiddleware` which is enabled by default. This means you will need to use `csrf_exempt()` on your view to allow you to change the upload handlers. You will then need to use `csrf_protect()` on the function that actually processes the request. Note that this means that the handlers may start receiving the file upload before the CSRF checks have been done. Example code:
 ```
 from django.views.decorators.csrf import csrf_exempt, csrf_protect
 
@@ -336,3 +338,24 @@ class SomeForm (Form):
 
     some_choice = ChoiceField(choices=CHOICE_LIST, required=False)
 ```
+
+## django form with multiple file fields
+
+```<form enctype="multipart/form-data" action="" method="post">
+<input type="file" name="myfiles" multiple>
+<input type="submit" name="upload" value="Upload">
+</form>
+```
+
+```
+for afile in request.FILES.getlist('myfiles'):
+    # do something with afile
+```
+
+## Django ModelForm: What is save(commit=False) used for?
+
+That's useful when you get most of your model data from a form, but need to populate some null=False fields with non-form data.
+
+Saving with commit=False gets you a model object, then you can add your extra data and save it.
+[a good example](https://stackoverflow.com/questions/569468/django-multiple-models-in-one-template-using-forms/575133#575133)
+
