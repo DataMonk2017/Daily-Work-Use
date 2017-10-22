@@ -116,3 +116,5 @@ Raising an Http404 exception will trigger Django to call its own 404 error view.
 [StackOverflow](https://stackoverflow.com/questions/4642596/how-do-i-check-whether-this-user-is-anonymous-or-actually-a-user-on-my-system)
 
 [is_anonymous](https://docs.djangoproject.com/en/dev/topics/auth/#django.contrib.auth.models.User.is_anonymous)
+
+
