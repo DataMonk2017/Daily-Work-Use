@@ -292,3 +292,47 @@ def upload_file_view(request):
 def _upload_file_view(request):
     ... # Process request
 ```
+
+## TextField in Form?
+
+`TextField` in models should be implemented by `forms.CharField(widget=forms.Textarea)`
+
+## Add text in the Placeholder of input
+
+Look at the [widgets documentation](https://stackoverflow.com/questions/4101258/how-do-i-add-a-placeholder-on-a-charfield-in-django). Basically it would look like:
+```
+q = forms.CharField(label='search', 
+                    widget=forms.TextInput(attrs={'placeholder': 'Search'}))
+```
+More writing, yes, but the separation allows for better abstraction of more complicated cases.
+
+You can also declare a widgets attribute containing a <field name> => <widget instance> mapping directly on the Meta of your ModelForm sub-class.
+
+```
+class AuthorForm(ModelForm):
+    class Meta:
+        model = Author
+        widgets = {
+            'name': TextInput(attrs={'placeholder': 'name'}),
+        }
+```        
+You could always create your own widget that derives from TextInput and includes the placeholder attribute, and use the widgets dictionary to simply map fields to your new widget without specifying the placeholder attribute for every field.
+
+## Empty Label ChoiceField Django
+
+[StackOverflow](https://stackoverflow.com/questions/14541074/empty-label-choicefield-django/14542916#14542916)
+
+```
+### forms.py
+from django.forms import Form, ChoiceField
+
+CHOICE_LIST = [
+    ('', '----'), # replace the value '----' with whatever you want, it won't matter
+    (1, 'Rock'),
+    (2, 'Hard Place')
+]
+
+class SomeForm (Form):
+
+    some_choice = ChoiceField(choices=CHOICE_LIST, required=False)
+```
