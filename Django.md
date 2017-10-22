@@ -89,3 +89,18 @@ class MyForm(forms.Form):
 ```    
     
 Hope this helps.
+
+## python text file busy
+[StackOverflow](https://stackoverflow.com/questions/34170655/python-gives-oserror-text-file-busy-upon-trying-to-execute-temporary-file)
+
+You need to close the binFileHandle before execution, similarily the code did for srcFileHandle.
+```
+...
+from os import close, remove  # <---
+...
+
+print("Executing...")
+close(binFileHandle)  # <---
+call([binFileName])
+...
+```
