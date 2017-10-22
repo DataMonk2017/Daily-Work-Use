@@ -90,3 +90,7 @@ $(window).resize(function() {
   console.log('window was resized');
 });
 ```
+
+## upload file button text
+[StackOverflow1](https://stackoverflow.com/questions/25651507/django-change-what-upload-file-button-says-in-the-template)
+[StackOverflow2](https://stackoverflow.com/questions/1944267/how-to-change-the-button-text-of-input-type-file)
