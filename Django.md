@@ -110,3 +110,9 @@ call([binFileName])
 An HttpResponseNotFound is just like a normal HttpResponse except it sends error code 404. So it's up to you to render an appropriate 404 page in that view, otherwise the browser will display its own default.
 
 Raising an Http404 exception will trigger Django to call its own 404 error view. Actually, this does little more than render the 404.html template and send it - using HttpResponseNotFound, in fact. But the convenience is that you're then specifying the template (and view, if you like) in one place.
+
+## Check whether this user is anoymous or acutally a user on my system
+
+[StackOverflow](https://stackoverflow.com/questions/4642596/how-do-i-check-whether-this-user-is-anonymous-or-actually-a-user-on-my-system)
+
+[is_anonymous](https://docs.djangoproject.com/en/dev/topics/auth/#django.contrib.auth.models.User.is_anonymous)
