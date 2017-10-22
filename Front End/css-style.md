@@ -204,3 +204,6 @@ You can use the 'pull-right' class to line the right hand side of the menu up wi
 ## calc usage
 
 [CSS-Trick](https://css-tricks.com/a-couple-of-use-cases-for-calc/#article-header-id-1)
+
+## background-size
+[CSS-Trick](https://css-tricks.com/almanac/properties/b/background-size/)
