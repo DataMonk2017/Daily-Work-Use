@@ -359,3 +359,8 @@ That's useful when you get most of your model data from a form, but need to popu
 Saving with commit=False gets you a model object, then you can add your extra data and save it.
 [a good example](https://stackoverflow.com/questions/569468/django-multiple-models-in-one-template-using-forms/575133#575133)
 
+
+## Blank and Null
+
+Here is the [difference](https://simpleisbetterthancomplex.com/tips/2016/07/25/django-tip-8-blank-or-null.html).
+
