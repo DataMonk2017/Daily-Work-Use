@@ -364,3 +364,24 @@ Saving with commit=False gets you a model object, then you can add your extra da
 
 Here is the [difference](https://simpleisbetterthancomplex.com/tips/2016/07/25/django-tip-8-blank-or-null.html).
 
+## Difference between `ugettext()` vs. `ugettext_lazy()`
+[StackOverflow](https://stackoverflow.com/questions/4160770/when-should-i-use-ugettext-lazy#answer-4164683)
+`ugettext()` vs. `ugettext_lazy()`
+
+In definitions like forms or models you should use `ugettext_lazy` because the code of this definitions is only executed once (mostly on django's startup); `ugettext_lazy` translates the strings in a lazy fashion, which means, eg. every time you access the name of an attribute on a model the string will be newly translated-which makes totally sense because you might be looking at this model in different languages since django was started!
+
+In views and similar function calls you can use `ugettext` without problems, because everytime the view is called `ugettext` will be newly executed, so you will always get the right translation fitting the request!
+
+Regarding `ugettext_noop()`
+
+As Bryce pointed out in his answer, this function marks a string as extractable for translation but does return the untranslated string. This is useful for using the string in two places – translated and untranslated. See the following example:
+```python
+import logging
+from django.http import HttpResponse
+from django.utils.translation import ugettext as _, ugettext_noop as _noop
+
+def view(request):
+    msg = _noop("An error has occurred")
+    logging.error(msg)
+    return HttpResponse(_(msg))
+```    
