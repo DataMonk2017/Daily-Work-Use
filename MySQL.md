@@ -69,3 +69,43 @@ If the size is more than 255, the total space required should be size * N + 2.
 Actually, there is a difference between VARCHAR(255) and VARCHAR(500), even if you put 1 character inside such column. The value appended at the end of the row will be an integer that stores what the actual length of stored data is. In case of VARCHAR(255) it will be 1 byte integer. In case of VARCHAR(500) it will be 2 bytes. it's a small difference, but one should be aware of it. I don't have any data on hand how it can affect performance, but I assume it's so small that it's not worth researching. 
 
 Change varchar length does not rewrite the table. It just check the constraint length against the entire table exactly as CHECK CONSTRAINT. If you increase length there is nothing to do, just next insert or updates will accept bigger length. If you decrease length and all rows pass the new smaller constraint, Pg doesn't take any further action besides to allow next inserts or updates to write just the new length.
+
+
+## Replace substring in string
+
+[StackOverflow](https://stackoverflow.com/questions/10177208/update-a-column-value-replacing-part-of-a-string)
+```python
+UPDATE urls
+SET url = REPLACE(url, 'domain1.com/images/', 'domain2.com/otherfolder/')
+```
+
+## Some tips for bulkloading
+
+[StackOverflow](https://stackoverflow.com/questions/2463602/mysql-load-data-infile-acceleration)
+
+if you're using innodb and bulk loading here are a few tips:
+
+sort your csv file into the primary key order of the target table : remember innodb uses clustered primary keys so it will load faster if it's sorted !
+
+typical load data infile i use:
+```
+truncate <table>;
+
+set autocommit = 0;
+
+load data infile <path> into table <table>...
+
+commit;
+```
+other optimisations you can use to boost load times:
+```
+set unique_checks = 0;
+set foreign_key_checks = 0;
+set sql_log_bin=0;
+split the csv file into smaller chunks
+```
+typical import stats i have observed during bulk loads:
+```
+3.5 - 6.5 million rows imported per min
+210 - 400 million rows per hour 
+```
