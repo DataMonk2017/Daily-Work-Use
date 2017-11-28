@@ -366,6 +366,7 @@ Here is the [difference](https://simpleisbetterthancomplex.com/tips/2016/07/25/d
 
 ## Difference between `ugettext()` vs. `ugettext_lazy()`
 [StackOverflow](https://stackoverflow.com/questions/4160770/when-should-i-use-ugettext-lazy#answer-4164683)
+
 `ugettext()` vs. `ugettext_lazy()`
 
 In definitions like forms or models you should use `ugettext_lazy` because the code of this definitions is only executed once (mostly on django's startup); `ugettext_lazy` translates the strings in a lazy fashion, which means, eg. every time you access the name of an attribute on a model the string will be newly translated-which makes totally sense because you might be looking at this model in different languages since django was started!
@@ -386,6 +387,6 @@ def view(request):
     return HttpResponse(_(msg))
 ```    
 
-# Difference between Django Model() and Model.objects.create()
+## Difference between Django Model() and Model.objects.create()
 [Stackoverflow](https://stackoverflow.com/questions/26672077/django-model-vs-model-objects-create)
 To create and save an object in a single step, use the `create()` method.
