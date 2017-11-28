@@ -385,3 +385,7 @@ def view(request):
     logging.error(msg)
     return HttpResponse(_(msg))
 ```    
+
+# Difference between Django Model() and Model.objects.create()
+[Stackoverflow](https://stackoverflow.com/questions/26672077/django-model-vs-model-objects-create)
+To create and save an object in a single step, use the `create()` method.
